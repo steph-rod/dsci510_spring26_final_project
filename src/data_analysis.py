@@ -62,33 +62,6 @@ print(len(top15_table))
 merged_tables.to_csv("../data/data_hotspots.csv", index=False)
 top15_table.to_csv("../data/data_top15_hotspots.csv", index=False)
 
-#matplotlib
-# AI generated: creating visualizations
-top15_table.plot(x="County", y=["TotalCrime", "DrugArrests"], kind="bar")
-
-plt.title("Top 15 Counties: Crime vs Drug Arrests")
-plt.xlabel("County")
-plt.ylabel("Counts")
-plt.tight_layout()
-plt.savefig("../results/data_top15_hotspots_plot.png")
-plt.show()
-
-sort_merged_tables.plot(x="County", y=["TotalCrime", "DrugArrests"],kind="bar")
-plt.title("All Counties: Crime vs Drug Arrests")
-plt.xlabel("County")
-plt.ylabel("Counts")
-plt.tight_layout()
-plt.savefig("../results/data_hotspots_plot.png")
-plt.show()
-
-merged_tables.plot(x="TotalCrime", y="DrugArrests", kind="scatter")
-plt.title("Crime vs Drug Arrests")
-plt.xlabel("Total Crime")
-plt.ylabel("Drug Arrests")
-plt.tight_layout()
-plt.savefig("../results/data_hotspots_plot.png")
-plt.show()
-
 # api_fetch
 fda_data = openfda_data(500)
 print(fda_data.head())
@@ -99,3 +72,43 @@ print(fda_data.columns)
 
 drug_activity = fda_data.groupby("city").size().reset_index(name="DrugReports")
 print(drug_activity.sort_values(by="DrugReports", ascending=False).head(15))
+
+#matplotlib
+# AI generated: creating visualizations
+top15_table.plot(x="County", y=["TotalCrime", "DrugArrests"], kind="bar")
+
+plt.title("Top 15 Counties: Crime vs Drug Arrests in 2024")
+plt.xlabel("County")
+plt.ylabel("Counts")
+plt.tight_layout()
+plt.savefig("../results/data_top15_hotspots_plot.png")
+plt.show()
+
+sort_merged_tables.plot(x="County", y=["TotalCrime", "DrugArrests"],kind="bar")
+plt.title("All Counties: Crime vs Drug Arrests in 2024")
+plt.xlabel("County")
+plt.ylabel("Counts")
+plt.tight_layout()
+plt.savefig("../results/data_hotspots_plot.png")
+plt.show()
+
+merged_tables.plot(x="TotalCrime", y="DrugArrests", kind="scatter")
+plt.title("Crime vs Drug Arrests in 2024")
+plt.xlabel("Total Crime")
+plt.ylabel("Drug Arrests")
+plt.tight_layout()
+plt.savefig("../results/data_hotspots_plot.png")
+plt.show()
+
+top_cities = drug_activity.sort_values(by="DrugReports", ascending=False).head(10)
+
+top_cities.plot(x="city", y="DrugReports", kind="bar", legend=False)
+plt.title("Top Cities by Drug Reports (openFDA) - 2024")
+plt.xlabel("City")
+plt.ylabel("Number of Reports")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("../results/api_top_cities.png")
+plt.show()
+
+
