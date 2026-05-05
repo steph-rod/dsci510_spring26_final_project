@@ -10,10 +10,12 @@ This project analyzes drug-related activity and its relationship with crime acro
   - Provides county-level drug-related arrest data
 - openFDA API (JSON)
   - Provides drug enforcement reports with city-level information
+- Raw datasets are not included in the repository due to size and submission guidelines
+- The pipeline demonstrates data processing and visualization using API data. 
 
 ## Results
 
-The analysis identified crime and drug arrest hotspots across California counties. A strong positive correlation (~0.88) was found between total crime and drug-related arrests, indicating that counties with higher crime levels also tend to have higher drug enforcement activity. This correlation indicates an association between variables but does not imply causation.
+The analysis identified crime and drug arrest hotspots across California counties. A strong positive correlation (~0.88) was found between total crime and drug-related arrests, indicating that counties with higher crime levels also tend to have higher drug-related arrests. This correlation indicates an association between variables but does not imply causation.
 
 Supporting analysis using openFDA data showed drug-related reports in major cities such as Los Angeles and San Diego, which are located within high-crime counties. 
 
@@ -28,10 +30,11 @@ pip install -r requirements.txt
 ## Running analysis
 
 From the `src/` directory run:
-python data_analysis.py
+python main.py
+
+This script runs the pipeline to fetch API data, process it and generate visualizations 
 
 Results will be saved in:
-- `data/` folder → processed datasets (CSV)
 - `results/` folder → visualizations (PNG)
 
 ## AI Usage
