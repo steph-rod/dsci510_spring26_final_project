@@ -13,7 +13,26 @@ This project analyzes drug-related activity and its relationship with crime acro
 - Raw datasets are not included in the repository due to size and submission guidelines
 - The pipeline demonstrates data processing and visualization using API data. 
 
-## Results
+## Analysis
+
+This project analyzes the relationship between drug activity and crime across California counties using data from multiple sources.
+
+The analysis process included the following steps:
+
+- Data preprocessing:
+  - Data from OpenJustice (crime and arrests) and the openFDA API (drug reports) were cleaned, filtered to the year 2024, and aggregated at the county level. A total crime feature was created by combining violent and property crime counts.
+- Feature engineering:
+  - Key variables were defined to represent crime and drug activity, including total crime, drug-related arrests, and drug-related reports.
+- Data integration:
+  - Datasets from different sources (county-level and city-level) were aligned and merged to enable comparison across geographic regions.
+- Exploratory data analysis (EDA):
+  - Visualizations such as scatter plots, bar charts, and geographic maps were used to identify patterns and trends.
+- Statistical analysis:
+  - A correlation analysis was performed to quantify the relationship between total crime and drug-related arrests, resulting in a strong positive correlation (r ≈ 0.88).
+- Geospatial analysis:
+  - Geographic visualization (using ArcGIS) was used to identify hotspots of crime and drug activity across California counties.
+
+## Summary of Results
 
 The analysis identified crime and drug arrest hotspots across California counties. A strong positive correlation (~0.88) was found between total crime and drug-related arrests, indicating that counties with higher crime levels also tend to have higher drug-related arrests. This correlation indicates an association between variables but does not imply causation.
 
@@ -27,7 +46,7 @@ Supporting analysis using openFDA data showed drug-related reports in major citi
 Install dependencies with:
 pip install -r requirements.txt
 
-## Running analysis
+## How to run 
 
 From the `src/` directory run:
 python main.py
